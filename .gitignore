@@ -1,5 +1,5 @@
 venv
-app/data/*
+app/data/*.zip
 app/__pycache__
 .DS_store
 .env
