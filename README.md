@@ -15,11 +15,15 @@ https://www.kaggle.com/datasets/muhammadkaleemullah/imdb-data?select=complete_da
 - Авторизоваться на kaggle.com
 - Зайти в аккаунт, в разделе API кнопка Create New API Token
 - Из полученного JSON-а сложить ключи в `.env`:
-> KAGGLE_USERNAME=<my_username>
-> KAGGLE_KEY=<my_api_key>
+```
+KAGGLE_USERNAME=<my_username>
+KAGGLE_KEY=<my_api_key>
+```
 
 #### Запуск контейнера
-> docker-compose up -d --build
+```
+docker-compose up -d --build
+```
 
 #### FastAPI
 http://localhost:8000/
