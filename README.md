@@ -14,15 +14,17 @@ https://www.kaggle.com/datasets/muhammadkaleemullah/imdb-data?select=complete_da
 Датасет взят с kaggle. Для автоматизации скачивания нужно получить ключ api:
 - Авторизоваться на kaggle.com
 - Зайти в аккаунт, в разделе API кнопка Create New API Token
-- Из полученного JSON-а сложить ключи в `.env`:
-```
-KAGGLE_USERNAME=<my_username>
-KAGGLE_KEY=<my_api_key>
-```
+- Подготовить `.env` на основе `.env.example`, указав ключи из полученного JSON-а
 
 #### Запуск контейнера
 ```
 docker-compose up -d --build
+```
+
+#### Запуск разбора данных
+```
+docker-compose --env-file .env run web sh ./app/prepare_data.sh
+docker-compose --env-file .env run web python3 ./app/seed_with_psycopg.py
 ```
 
 #### FastAPI
