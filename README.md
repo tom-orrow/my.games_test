@@ -23,8 +23,8 @@ docker-compose up -d --build
 
 #### Запуск разбора данных
 ```
-docker-compose --env-file .env run web sh ./app/prepare_data.sh
-docker-compose --env-file .env run web python3 ./app/seed_with_psycopg.py
+docker-compose exec web sh ./app/prepare_data.sh
+docker-compose exec web python3 ./app/seed_with_psycopg.py
 ```
 
 #### FastAPI
