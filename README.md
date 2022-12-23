@@ -5,6 +5,8 @@
 В датасете хранятся склеенные данные по фильмам, названиям, актёрам.
 Попробовал через docker поднять postgres + fastapi и разобрать этот датасет на реляционную модель. Обработка и заливка получилась дольше чем планировал и пока в качестве заглушки ограничился первыми 100к строками.
 
+Отдельным скриптом попробовал сделать через Spark на полном датасете.
+
 #### Датасет
 https://www.kaggle.com/datasets/muhammadkaleemullah/imdb-data?select=complete_data.csv
 
@@ -25,6 +27,7 @@ docker-compose up -d --build
 ```
 docker-compose exec web sh ./app/prepare_data.sh
 docker-compose exec web python3 ./app/seed_with_psycopg.py
+docker-compose exec web python3 ./app/seed_with_spark.py
 ```
 
 #### FastAPI
@@ -33,5 +36,6 @@ http://localhost:8000/
 Для аналитики сделал четыре эндпоинта:
 - **/top_worst_actors** - топ 10 худших актёров по средней оценке их фильмов
 - **/top_producers_by_number_of_movies** - топ 10 продюссеров по количеству снятых фильмов
-- **/most_popular_genres** - популярность жанров по количеству фильмов
 - **/movies_top250** - топ 250 фильмов по средней оценке среди тех, где больше 50к голосов
+- **/most_popular_genres** - популярность жанров по количеству фильмов
+- **/most_popular_genres_spark** - популярность жанров по количеству голосов через датамарт от spark-а

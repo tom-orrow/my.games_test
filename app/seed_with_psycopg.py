@@ -7,7 +7,7 @@ from db import DB
 def main():
     chunksize = 100_000
     with pd.read_csv(
-        f'{os.environ["DATA_FOLDER"]}/complete_data.csv.zip', chunksize=chunksize
+        f'{os.environ["DATA_FOLDER"]}/complete_data.csv', chunksize=chunksize
     ) as reader:
         for i, chunk in enumerate(reader):
             prepared_data = prepare(chunk)

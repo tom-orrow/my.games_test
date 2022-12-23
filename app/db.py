@@ -75,6 +75,19 @@ class DB(object):
 
         return dict(self.cur.fetchall())
 
+    def get_most_popular_genres_spark(self):
+        self.cur.execute(
+            """
+            select
+                genre,
+                num_votes
+            from dm_most_popular_genres
+            order by num_votes desc
+            """
+        )
+
+        return dict(self.cur.fetchall())
+
     def get_movies_top250(self):
         self.cur.execute(
             """

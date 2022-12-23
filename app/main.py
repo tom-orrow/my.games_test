@@ -27,6 +27,11 @@ async def get_most_popular_genres():
     return DB().get_most_popular_genres()
 
 
+@app.get("/most_popular_genres_spark")
+async def get_most_popular_genres_spark():
+    return DB().get_most_popular_genres_spark()
+
+
 @app.get("/movies_top250")
 async def get_movies_top250():
     return DB().get_movies_top250()
