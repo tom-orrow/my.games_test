@@ -50,7 +50,6 @@ data_schema = StructType(
 
 def get_most_popular_genres(spark: SparkSession) -> DataFrame:
     data_path = os.path.join(Path(__name__).parent, "./app/data", "complete_data.csv")
-    print(data_path)
 
     df = (
         (
